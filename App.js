@@ -1,92 +1,38 @@
 import React, {Component} from 'react';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-import { StyleSheet, Text, View, Button} from 'react-native';
-// import { FBLogin, FBLoginManager } from 'react-native-facebook-login';
-import FBLogin, FBLoginManager } from 'react-native-facebook-login';
+import { Provider, connect } from 'react-redux';
+import { reduxifyNavigator } from 'react-navigation-redux-helpers';
 
-console.log(FBLoginManager);
+import {AppNavigator} from './src/reducers';
+import {store} from './store';
+import {show, hide, toggle as toggleDim} from './src/actions/Dim';
+import {show as aa, toggle as toggleFloatingButton} from './src/actions/FloatingButton'
 
-class Test extends React.Component {
+// const App = reduxifyNavigator(AppNavigator, "root");
 
-  static navigationOptions = {
-    title: 'Home',
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-        <Button
-          title="Go to Details"
-          onPress={() => this.props.navigation.navigate('Aa')}
-        />
-        <FBLogin style={{ marginBottom: 10, }}/>
-      </View>
-    );
-  }
-}
-
-class Test2 extends React.Component {
-
-  static navigationOptions = {
-    title: 'TEST',
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-
-      </View>
-    );
-  }
-}
-
-// const App = createStackNavigator({
-//   Home: { screen: Test },
-//   Aa: { screen: Test2 }
-// });
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
-const App = createBottomTabNavigator(
-  {
-    Home: Test,
-    Aa: Test2
-  },
-  {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        let iconName;
-        if (routeName === 'Home') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Aa') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
-        }
-
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
-        return <Ionicons name={iconName} size={25} color={tintColor} />;
-      },
-    }),
-    tabBarOptions: {
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
-    },
-  }
-);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const mapStateToProps = (state) => ({
+  state: state.nav,
+  dim: state.dim,
+  float: state.float
 });
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  hideDim: () => dispatch(hide()),
+  showDim: () => dispatch(show()),
+  // toggleDim: () => dispatch(toggleDim()),
+  show: () => dispatch(aa()),
+  toggleFloatingButton: () => dispatch(toggleFloatingButton()),
+});
+
+const AppWithNavigationState = connect(mapStateToProps, mapDispatchToProps)(AppNavigator);
+
+class Root extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <AppWithNavigationState/>
+      </Provider>
+    );
+  }
+}
+
+export default Root;
