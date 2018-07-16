@@ -2,16 +2,8 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {StyleSheet, View, Text, FlatList} from 'react-native'
 
-import NotificationCard from '../../../components/NotificationCard';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  list: {
-    backgroundColor: '#fff'
-  }
-});
+import NotificationCard from '../../components/NotificationCard';
+import styles from '../../styles';
 
 class Notification extends Component {
 
@@ -26,9 +18,9 @@ class Notification extends Component {
     const {items} = this.state;
 
     return (
-      <View>
+      <View style={styles.container}>
         <FlatList
-          style={styles.list}
+          style={styles.listContainer}
           data={items}
           renderItem={({item}) => (<NotificationCard />)}
         />

@@ -1,7 +1,8 @@
 import {
-  createStore, applyMiddleware
+  createStore,
+  applyMiddleware
 } from 'redux';
-// import {createReactNavigationReduxMiddleware} from 'react-navigation-redux-helpers';
+
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import {appReducer } from './src/reducers';
@@ -11,10 +12,6 @@ const client = axios.create({
   responseType: 'json'
 });
 
-// const middleware = createReactNavigationReduxMiddleware(
-//   "root",
-//   state => state.nav
-// );
 
 const store = createStore(
   appReducer,

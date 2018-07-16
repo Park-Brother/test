@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { StyleSheet, FlatList, Text, View, Button} from 'react-native';
+import { FlatList, View} from 'react-native';
 
-import ChatCard from '../../../components/ChatCard';
+import ChatCard from '../../components/ChatCard';
+import styles from '../../styles';
 
 class DMList extends Component {
 
@@ -106,15 +107,6 @@ class DMList extends Component {
     ];
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  listContainer: {
-    backgroundColor: '#fff'
-  }
-});
 
 const mapStateToProps = (state) => ({
 

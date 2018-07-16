@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 import {createNavigationReducer} from 'react-navigation-redux-helpers';
 
-import AppNavigator from '../screens/AppNavigator';
+import AppNavigator from '../navigators/AppNavigator';
 
 /**
  * components reducer

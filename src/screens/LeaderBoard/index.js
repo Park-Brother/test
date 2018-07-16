@@ -3,13 +3,11 @@ import { connect } from 'react-redux';
 import { StyleSheet, FlatList, Text, View, Button} from 'react-native';
 import {Header} from 'react-navigation';
 
-import TabMenu from '../../../components/TabMenu';
-import RankingCard from '../../../components/RankingCard';
-import FloatingButton from '../../../components/FloatingButton';
-import Dim from '../../../components/Dim';
-
-import {show, hide} from '../../../actions/Dim';
-import {setItems, toggle} from '../../../actions/FloatingButton';
+import TabMenu from '../../components/TabMenu';
+import RankingCard from '../../components/RankingCard';
+import {show, hide} from '../../actions/Dim';
+import {setItems, toggle} from '../../actions/FloatingButton';
+import styles from '../../styles';
 
 class LeaderBoard extends Component {
 
@@ -66,7 +64,7 @@ class LeaderBoard extends Component {
         case 0:
           items = [
             {
-              icon: require('../../../../img/bolt.png'),
+              icon: require('../../../img/bolt.png'),
               onPress: (i) => {
                 alert(1)
                 // this.hideDim();
@@ -74,7 +72,7 @@ class LeaderBoard extends Component {
               }
             },
             {
-              icon: require('../../../../img/bolt.png'),
+              icon: require('../../../img/bolt.png'),
               onPress: () => {
                 alert(2)
                 // this.hideDim();
@@ -82,7 +80,7 @@ class LeaderBoard extends Component {
               }
             },
             {
-              icon: require('../../../../img/bolt.png'),
+              icon: require('../../../img/bolt.png'),
               onPress: () => {
                 alert(3)
                 // this.hideDim();
@@ -94,14 +92,14 @@ class LeaderBoard extends Component {
         default:
           items = [
             {
-              icon: require('../../../../img/bolt.png'),
+              icon: require('../../../img/bolt.png'),
               onPress: () => {
                 console.log(1)
                 this.props.toggleFloatingButton();
               }
             },
             {
-              icon: require('../../../../img/bolt.png'),
+              icon: require('../../../img/bolt.png'),
               onPress: () => {
                 console.log(2)
                 this.props.toggleFloatingButton();
@@ -160,15 +158,6 @@ class LeaderBoard extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  listContainer: {
-    backgroundColor: '#fff'
-  }
-});
 
 const mapStateToProps = (state) => ({
   float: state.float,

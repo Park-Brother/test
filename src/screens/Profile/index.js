@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Button, FlatList, Image, Modal, TouchableHighlight} from 'react-native';
 
-import Thumbnail from '../../../components/Thumbnail';
-import TabMenu from '../../../components/TabMenu';
-import ModalItem from '../../../components/ModalItem';
+import Thumbnail from '../../components/Thumbnail';
+import TabMenu from '../../components/TabMenu';
+import ModalItem from '../../components/ModalItem';
 
 export default class Profile extends Component {
 
@@ -23,7 +23,7 @@ export default class Profile extends Component {
     const items = this.state.tabItems;
     const modalItems = this.state.modalItems;
     const id = 'IDIDIDIDIDID';
-    //<Image style={{width: 30, height: 30, position: 'absolute', bottom: 0, right: 0}} source={require('../../../../img/thumbnail.png')}/>
+    //<Image style={{width: 30, height: 30, position: 'absolute', bottom: 0, right: 0}} source={require('../../img/thumbnail.png')}/>
     return (
       <View style={styles.container}>
         <View style={styles.userInfoContainer}>
@@ -32,7 +32,7 @@ export default class Profile extends Component {
               <Thumbnail size={90} shrink={3}/>
               <TouchableHighlight onPress={this.openModal.bind(this)}>
                 <View style={styles.editBtn}>
-                  <Image style={styles.camera} source={require('../../../../img/camera.png')}/>
+                  <Image style={styles.camera} source={require('../../../img/camera.png')}/>
                 </View>
               </TouchableHighlight>
               <Text style={styles.id}> {id} </Text>
@@ -43,7 +43,7 @@ export default class Profile extends Component {
 
             <TouchableHighlight onPress={this.logout.bind(this)}>
               <View style={{borderRadius: 3, borderColor: '#ededed', borderWidth: 1, paddingTop: 5, paddingBottom: 5, paddingLeft: 12, paddingRight: 8}}>
-                <Image style={{width: 20, height: 20}} source={require('../../../../img/logout.png')}/>
+                <Image style={{width: 20, height: 20}} source={require('../../../img/logout.png')}/>
               </View>
             </TouchableHighlight>
 
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#EEEEEE',
+    borderColor: '#E0E0E0',
     borderWidth: 1,
   },
   camera: {

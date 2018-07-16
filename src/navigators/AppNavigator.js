@@ -1,30 +1,19 @@
 import React, {Component} from 'react';
 import {View, DeviceInfo} from 'react-native';
-import {createSwitchNavigator} from 'react-navigation';
+import {InitialRouteName} from "./TabNavigator";
+import SwitchNavigator from './SwitchNavigator';
 
-import {TabNavigator, InitialRouteName} from "./Tabs/TabNavigator";
-import AuthNavigator from './Auth';
 import Dim from '../components/Dim';
 import FloatingButton from '../components/FloatingButton';
-
-const SwitchNavigator = createSwitchNavigator({
-  auth: {
-    screen: AuthNavigator
-  },
-  tabs: {
-    screen: TabNavigator
-  }
-});
-
 
 class AppNavigator extends Component {
 
   static router = {
-    ...TabNavigator.router,
+    ...SwitchNavigator.router,
     getStateForAction: (action, lastState) => {
       // console.log('action', action, lastState);
       // check for custom actions and return a different navigation state.
-      return TabNavigator.router.getStateForAction(action, lastState);
+      return SwitchNavigator.router.getStateForAction(action, lastState);
     },
   };
 
@@ -43,9 +32,9 @@ class AppNavigator extends Component {
     if (DeviceInfo.isIPhoneX_deprecated) position += 34;
 
     return (
-      <View style={{flex:1}}>
+        <View style={{flex:1}}>
 
-        <SwitchNavigator onNavigationStateChange={(previous, current) => {
+          <SwitchNavigator onNavigationStateChange={(previous, current) => {
             const {index, routes} = current;
             const selectedSceneKey = routes[index].key;
 
@@ -53,21 +42,21 @@ class AppNavigator extends Component {
               key: selectedSceneKey
             });
           }}/>
-        }
-        {
-         dim.visible && <Dim onPress={toggleWithDim}/>
-        }
-        {
-          //TODO 아래 부분 변경하도록 한다.
-          this.state.key === AppNavigator.SELECTED_ROUTER_KEY &&
-          <FloatingButton
-            items={float.items}
-            folding={float.folding}
-            bottom={position}
-            onPress={toggleWithDim}/>
-        }
+          }
+          {
+            dim.visible && <Dim onPress={toggleWithDim}/>
+          }
+          {
+            //TODO 아래 부분 변경하도록 한다.
+            this.state.key === AppNavigator.SELECTED_ROUTER_KEY &&
+            <FloatingButton
+                items={float.items}
+                folding={float.folding}
+                bottom={position}
+                onPress={toggleWithDim}/>
+          }
 
-      </View>
+        </View>
     )
   };
 }

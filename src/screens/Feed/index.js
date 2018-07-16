@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {StyleSheet, View, FlatList, Text, Button} from 'react-native';
+import {View, FlatList} from 'react-native';
 
-import {getFeeds} from '../../../actions/Feed';
+import FeedCard from '../../components/FeedCard';
+import {getFeeds} from '../../actions/Feed';
+import styles from '../../styles';
 
-import FeedCard from '../../../components/FeedCard';
 class Feed extends Component {
     constructor(props) {
       super(props);
@@ -60,15 +61,6 @@ class Feed extends Component {
       });
     }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  listContainer: {
-    backgroundColor: '#fff',
-  }
-});
 
 const mapStateToProps = (state) => {
   return {
