@@ -13,7 +13,7 @@ class DMList extends Component {
     };
   }
 
-  render(){
+  render() {
     return (
       <View style={styles.container}>
         <FlatList

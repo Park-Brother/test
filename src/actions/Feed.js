@@ -1,8 +1,8 @@
-export const GET_REPOS = 'GET_REPOS';
+import {GET_FEEDS} from "./actionTypes";
 
-export const getRepos = (user) => {
+export const getFeeds = (user) => {
   return {
-    type: GET_REPOS,
+    type: GET_FEEDS,
     payload: {
       request: {
         url: `/users/${user}/repos`

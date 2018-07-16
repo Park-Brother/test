@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {StyleSheet, View, FlatList, Text, Button} from 'react-native';
 
-import {getRepos} from '../../../actions/Feed';
+import {getFeeds} from '../../../actions/Feed';
 
 import FeedCard from '../../../components/FeedCard';
 class Feed extends Component {
     constructor(props) {
       super(props);
-      // this.props.test('mth-bs-park');
+      this.props.test('mth-bs-park');
       this.state = {
         refreshing: false,
         items: [{}, {}],
@@ -21,12 +21,8 @@ class Feed extends Component {
     }
     render() {
       const {refreshing, items} = this.state;
-      const {loading} = this.props.repo;
-      // console.log(':::kk', this.props.repo);
-      console.log('render:::');
-      // <Button title="aa" onPress={this.props.test.bind(this, 'mth-bs-park')}/>
-      //onEndReachedThreshold={()=>{console.log('end:::')}}
-      //viewabilityConfig={Feed.aa}
+      const {loading} = this.props.data;
+
       return (
         <View style={styles.container}>
           <FlatList
@@ -76,12 +72,12 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    repo: state.feed
+    data: state.feed
   }
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  test: () => {dispatch(getRepos())}
+  test: () => {dispatch(getFeeds())}
 })
 
 Feed = connect(mapStateToProps, mapDispatchToProps)(Feed);

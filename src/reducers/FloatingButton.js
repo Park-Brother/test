@@ -1,6 +1,10 @@
 import {
-  SHOW, HIDE, SET_ITEMS, TOGGLE
-} from '../actions/FloatingButton';
+  SET_ITEM_FLOATING_BTN,
+  SHOW_FLOATING_BTN,
+  HIDE_FLOATING_BTN,
+  TOGGLE_FLOATING_BTN_WITH_DIM,
+  TOGGLE_DIM,
+} from '../actions/actionTypes';
 
 const initialState = {
   visible: true,
@@ -10,31 +14,40 @@ const initialState = {
 
 const FloatingButtonReducer = (state = initialState, action) => {
   const payload = action.payload;
-
+  const toggleFolding = !state.folding;
   switch(action.type) {
-      case SHOW:
-          return {
-            ...state,
-            ...payload
-          };
-      case HIDE:
+    case SHOW_FLOATING_BTN:
         return {
           ...state,
           ...payload
         };
-      case SET_ITEMS:
-        return {
-          ...state,
-          ...payload
-        };
-      case TOGGLE:
-        const folding = !state.folding;
-        return {
-          ...state,
-          folding
-        }
-      default:
-          return state;
+
+    case HIDE_FLOATING_BTN:
+      return {
+        ...state,
+        ...payload
+      };
+
+    case SET_ITEM_FLOATING_BTN:
+      return {
+        ...state,
+        ...payload
+      };
+
+    case TOGGLE_DIM:
+      return {
+        ...state,
+        folding: toggleFolding
+      };
+
+    case TOGGLE_FLOATING_BTN_WITH_DIM:
+      return {
+        ...state,
+        folding: toggleFolding
+      };
+
+    default:
+      return state;
   }
 };
 

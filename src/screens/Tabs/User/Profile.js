@@ -86,6 +86,7 @@ export default class Profile extends Component {
   }
 
   logout() {
+    console.log('kkk');
     this.props.navigation.navigate('SignUp');
   }
 

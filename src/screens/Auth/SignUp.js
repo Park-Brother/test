@@ -42,11 +42,12 @@ export default class SignUp extends Component {
       url: 'https://cdn-images-1.medium.com/max/1200/1*KANHihva9OdXx2-V5EDn3g.png',
       cache: 'cache-if-only'
     };
-    const userSource = require('../../../../img/user.png');
-    const passwordSource = require('../../../../img/key.png');
-    const facebookSource = require('../../../../img/facebook-circular-logo.png');
-    const googleSource = require('../../../../img/google-logo.png');
+    const userSource = require('../../../img/user.png');
+    const passwordSource = require('../../../img/key.png');
+    const facebookSource = require('../../../img/facebook-circular-logo.png');
+    const googleSource = require('../../../img/google-logo.png');
     //<Button onPress={this.onPress.bind(this)} title="go SignIn"></Button>
+
     return (
       <TouchableOpacity activeOpacity={1} style={styles.container} onPress={()=>{Keyboard.dismiss()}}>
         <KeyboardAvoidingView style={styles.aa} behavior="padding" keyboardVerticalOffset={50}>
@@ -93,7 +94,8 @@ export default class SignUp extends Component {
   }
 
   signUp() {
-    console.log('sign up...');
+    // console.log('sign up...', this.props.navigation);
+    this.props.navigation.navigate('LeaderBoard');
   }
 
   signIn() {

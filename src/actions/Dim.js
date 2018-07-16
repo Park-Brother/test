@@ -1,10 +1,8 @@
-export const SHOW = 'SHOW';
-export const HIDE = 'HIDE';
-export const TOGGLE = 'TOGGLE';
+import {SHOW_DIM, HIDE_DIM, TOGGLE_DIM} from "./actionTypes";
 
 export function show() {
   return {
-    type: SHOW,
+    type: SHOW_DIM,
     payload: {
       visible: true
     }
@@ -13,7 +11,7 @@ export function show() {
 
 export function hide() {
   return {
-    type: HIDE,
+    type: HIDE_DIM,
     payload: {
       visible: false
     }
@@ -22,7 +20,7 @@ export function hide() {
 
 export function toggle() {
   return {
-    type: TOGGLE,
+    type: TOGGLE_DIM,
     payload: {}
   }
 }
