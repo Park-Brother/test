@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f898d807-2166-4431-8da1-97df0313d435" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ListItem/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/navigators/StackNavigator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/LeaderBoard/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/MessageList/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/Notification/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tmp/NotificationCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChatCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tmp/ChatCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dim.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dim.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NotificationCard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RankingCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tmp/RankingCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigators/SwitchNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigators/AppNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigators/TabNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigators/TabNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/LeaderBoard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/LeaderBoard/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Message/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Message/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/MessageList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/MessageList/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Notification/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Notification/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Profile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Profile/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/SignIn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SignIn/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -241,18 +220,6 @@
               <item name="tint-mobile" type="b2602c69:ProjectViewProjectNode" />
               <item name="tint-mobile" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tint-mobile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tint-mobile" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="navigators" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tint-mobile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tint-mobile" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="screens" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -275,6 +242,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="screens" type="462c0819:PsiDirectoryNode" />
               <item name="Notification" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tint-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tint-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tmp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -333,7 +306,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1531468996649</updated>
-      <workItem from="1531468998180" duration="33275000" />
+      <workItem from="1531468998180" duration="33492000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1531722344981</created>
@@ -349,15 +322,21 @@
       <option name="project" value="LOCAL" />
       <updated>1531737297797</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update">
+      <created>1531757059727</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1531757059727</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33275000" />
+    <option name="totallyTimeSpent" value="33492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1922619" />
       <window_info anchor="bottom" id="TODO" order="6" />
