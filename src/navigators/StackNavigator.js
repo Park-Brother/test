@@ -1,6 +1,5 @@
 import {
   createStackNavigator,
-  createSwitchNavigator,
 } from 'react-navigation';
 
 import {
