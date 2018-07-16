@@ -1,64 +1,28 @@
-import React, {Component} from 'react';
-import {View, DeviceInfo} from 'react-native';
-import {InitialRouteName} from "./TabNavigator";
-import SwitchNavigator from './SwitchNavigator';
+import {
+  createSwitchNavigator
+} from 'react-navigation';
 
-import Dim from '../components/Dim';
-import FloatingButton from '../components/FloatingButton';
+import {
+  TabNavigator,
+} from './TabNavigator'
 
-class AppNavigator extends Component {
+import {
+  SignNavigator
+} from "./StackNavigator";
 
-  static router = {
-    ...SwitchNavigator.router,
-    getStateForAction: (action, lastState) => {
-      // console.log('action', action, lastState);
-      // check for custom actions and return a different navigation state.
-      return SwitchNavigator.router.getStateForAction(action, lastState);
-    },
-  };
+/**
+ * Switch Naviagator
+ */
 
-  static SELECTED_ROUTER_KEY = 'LeaderBoard';
+const SwitchRouteConfig = {
+  Tabs: TabNavigator,
+  Sign: SignNavigator
+};
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      key: InitialRouteName
-    };
-  }
+const SwitchNavigatorConfig = {
+  mode: 'modal'
+};
 
-  render() {
-    const {dim, float, toggleWithDim, auth} = this.props;
-    let position = 49 + 15;
-    if (DeviceInfo.isIPhoneX_deprecated) position += 34;
-
-    return (
-        <View style={{flex:1}}>
-
-          <SwitchNavigator onNavigationStateChange={(previous, current) => {
-            const {index, routes} = current;
-            const selectedSceneKey = routes[index].key;
-
-            this.setState({
-              key: selectedSceneKey
-            });
-          }}/>
-          }
-          {
-            dim.visible && <Dim onPress={toggleWithDim}/>
-          }
-          {
-            //TODO 아래 부분 변경하도록 한다.
-            this.state.key === AppNavigator.SELECTED_ROUTER_KEY &&
-            <FloatingButton
-                items={float.items}
-                folding={float.folding}
-                bottom={position}
-                onPress={toggleWithDim}/>
-          }
-
-        </View>
-    )
-  };
-}
+const AppNavigator = createSwitchNavigator(SwitchRouteConfig, SwitchNavigatorConfig);
 
 export default AppNavigator;

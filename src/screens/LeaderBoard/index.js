@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, FlatList, Text, View, Button} from 'react-native';
-import {Header} from 'react-navigation';
+import { FlatList, Text, View, TouchableOpacity} from 'react-native';
 
 import TabMenu from '../../components/TabMenu';
-import RankingCard from '../../components/RankingCard';
+import Thumbnail from '../../components/Thumbnail';
+import Triangle from '../../components/Triangle';
+import ListItem from '../../components/ListItem';
+
 import {show, hide} from '../../actions/Dim';
 import {setItems, toggle} from '../../actions/FloatingButton';
-import styles from '../../styles';
+import styles from './styles';
 
 class LeaderBoard extends Component {
 
@@ -147,29 +149,64 @@ class LeaderBoard extends Component {
         <FlatList
           data={this.state.items}
           style={styles.listContainer}
-          renderItem={({item}) => <RankingCard items={item.key}/>}
+          renderItem={({item}) => this.getListItemTemplate(item)}
           ListFooterComponent={<Text>Loading!!..</Text>}
           onEndReached={()=>{console.log('end!!')}}
           onEndReachedThreshold={0}
           refreshing={false}
           onRefresh={()=>{console.log('refresh')}}
+          keyExtractor={(item, index) => index}
         />
       </View>
     );
+  }
+
+  getListItemTemplate(item) {
+    const user = '';
+    const country = 'china';
+
+    const left = (<Thumbnail user={user} country={country} size={40}/>);
+    const mid = (
+        <View style={styles.textContainer}>
+          <View style={styles.orderContainer}>
+            <Text style={styles.order}>999999</Text>
+            <Triangle direction='up'/>
+            <Text style={styles.orderChange}>999999</Text>
+          </View>
+          <View >
+            <Text style={styles.name}>Country Name</Text>
+          </View>
+        </View>
+    );
+
+    const right = (
+        <View style={styles.pointContainer}>
+          <Text style={styles.point}>100,00000000000 P</Text>
+        </View>
+    );
+
+    return (
+        <TouchableOpacity onPress={this.onPress.bind(this)} activeOpacity={1}>
+          <ListItem left={left} mid={mid} right={right}/>
+        </TouchableOpacity>
+    );
+  }
+
+  onPress() {
+    console.log('onPress', this.state);
   }
 }
 
 const mapStateToProps = (state) => ({
   float: state.float,
-
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   showDim: () => dispatch(show()),
   hideDim: () => dispatch(hide()),
   setItemsForFloatButton: (items) => dispatch(setItems(items)),
   toggleFloatingButton: () => dispatch(toggle()),
-})
+});
 
 LeaderBoard = connect(mapStateToProps, mapDispatchToProps)(LeaderBoard);
 

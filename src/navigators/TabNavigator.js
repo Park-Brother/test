@@ -1,102 +1,23 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import {StyleSheet, View, Image, DeviceInfo} from "react-native";
+import { createBottomTabNavigator } from 'react-navigation';
 import {
-  createStackNavigator,
-  createBottomTabNavigator
-} from 'react-navigation';
+  MessageNavigator,
+  FeedNavigator,
+  LeaderBoardNavigator,
+  NotificationNavigator,
+  ProfileNavigator,
+} from './StackNavigator';
 
-import {
-  Message,
-  MessageList,
-  Feed,
-  LeaderBoard,
-  Notification,
-  Profile
-} from '../screens';
-import {StyleSheet, View, Image} from "react-native";
-
-/**
- * Message config
- */
-const MessageRouteConfig = {
-  MessageList: {
-    screen: MessageList
-  },
-  Message: {
-    screen: Message
-  }
-};
-
-const MessageNavigatorOptions = {
-
-};
-
-/**
- * Feed config
- */
-const FeedRouteConfigs = {
-  Feed: {
-    screen: Feed
-  }
-};
-
-const FeedNavigatorOptions = {
-
-};
-
-/**
- * Leader Board Config
- */
-
-const LeaderBoardRouteConfig = {
-  LeaderBoard: {
-    screen: LeaderBoard
-  }
-};
-const LeaderBoardNavigatorOptions = {
-
-};
-
-/**
- * Notification config
- */
-
-const NotificationRouteConfig = {
-  Notification: {
-    screen: Notification
-  }
-};
-
-const NotificationNavigatorConfig = {
-
-};
-
-/**
- * Profile
- */
-const ProfileRouteConfig = {
-  Profile: {
-    screen: Profile
-  }
-};
-
-const ProfileNavigatorConfig = {
-
-};
-
-/**
- * create stack navigator
- */
-const MessageNavigator = createStackNavigator(MessageRouteConfig, MessageNavigatorOptions);
-const FeedNavigator = createStackNavigator(FeedRouteConfigs, FeedNavigatorOptions);
-const LeaderBoardNavigator = createStackNavigator(LeaderBoardRouteConfig, LeaderBoardNavigatorOptions);
-const NotificationNavigator = createStackNavigator(NotificationRouteConfig, NotificationNavigatorConfig);
-const ProfileNavigator = createStackNavigator(ProfileRouteConfig, ProfileNavigatorConfig);
-
+import Dim from '../components/Dim';
+import FloatingButton from '../components/FloatingButton';
+import {toggleWithDim} from "../actions/FloatingButton";
 
 /**
  * tab navigator
  */
-const InitialRouteName = 'Feed';
+const InitialRouteName = 'LeaderBoard';
 
 const TabRouteConfig = {
   Message: MessageNavigator,
@@ -157,7 +78,69 @@ function navigationOptions({navigation}) {
   }
 }
 
+const _TabNavigator = createBottomTabNavigator(TabRouteConfig, TabNavigatorConfig);
+
+class TabNavigator extends Component {
+
+  static router = {
+    ..._TabNavigator.router,
+    getStateForAction: (action, lastState) => {
+      // console.log('action', action, lastState);
+      // check for custom actions and return a different navigation state.
+      return _TabNavigator.router.getStateForAction(action, lastState);
+    },
+  };
+
+  static SELECTED_ROUTER_KEY = ['LeaderBoard'];
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      key: InitialRouteName
+    };
+  }
+
+  render() {
+    const {dim, float, toggleWithDim} = this.props;
+    const key = this.state.key;
+    let position = 49 + 15;
+    if (DeviceInfo.isIPhoneX_deprecated) position += 34;
+
+    return (
+      <View style={styles.container}>
+        <_TabNavigator onNavigationStateChange={(previous, current) => {
+          const {index, routes} = current;
+          const selectedSceneKey = routes[index].key;
+          this.setState({
+            key: selectedSceneKey
+          });
+        }}/>
+        {
+          dim.visible && <Dim onPress={toggleWithDim}/>
+        }
+        {
+          //TODO 아래 부분 변경하도록 한다.
+          this.hasFloatingBtn(key) &&
+          <FloatingButton
+              items={float.items}
+              folding={float.folding}
+              bottom={position}
+              onPress={toggleWithDim}/>
+        }
+      </View>
+    );
+  }
+
+  hasFloatingBtn(key) {
+    const hasFloatingBtn = TabNavigator.SELECTED_ROUTER_KEY.indexOf(key) !== -1;
+    return hasFloatingBtn;
+  }
+}
+
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   tabBarIconContainer: {
     width: 40,
     height: 40,
@@ -177,6 +160,15 @@ const styles = StyleSheet.create({
   }
 });
 
-const TabNavigator = createBottomTabNavigator(TabRouteConfig, TabNavigatorConfig);
+const mapStateToProps = (state) => ({
+  dim: state.dim,
+  float: state.float
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  toggleWithDim: () => dispatch(toggleWithDim()),
+});
+
+TabNavigator = connect(mapStateToProps, mapDispatchToProps)(TabNavigator);
 
 export { TabNavigator, InitialRouteName };

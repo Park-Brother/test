@@ -18,7 +18,7 @@ export default class DM extends Component {
               [
                 {text: 'Cancel', style: 'cancel'},
                 {text: 'OK', onPress: () => {
-                    navigation.navigate('DMList');
+                    navigation.navigate('MessageList');
                     removeItem();
                 }}
               ],

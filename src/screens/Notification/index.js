@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import {StyleSheet, View, Text, FlatList} from 'react-native'
+import {View, Text, FlatList, TouchableOpacity, Image} from 'react-native'
 
-import NotificationCard from '../../components/NotificationCard';
-import styles from '../../styles';
+import Thumbnail from '../../components/Thumbnail';
+import ListItem from '../../components/ListItem';
+import styles from './styles';
 
 class Notification extends Component {
 
@@ -22,10 +23,36 @@ class Notification extends Component {
         <FlatList
           style={styles.listContainer}
           data={items}
-          renderItem={({item}) => (<NotificationCard />)}
+          renderItem={({item}) => this.getListItemTemplate(item)}
+          keyExtractor={(item, index) => index}
         />
       </View>
     );
+  }
+
+  getListItemTemplate(item) {
+    const left = <Thumbnail size={40} />;
+    const mid = (
+        <View>
+          <Text style={styles.msg}>테스트틑 ㅋㅋ테스트틑 ㅋㅋ테스트틑 ㅋㅋ테스트틑 ㅋㅋ테스트틑 ㅋㅋ테스트틑 ㅋㅋ테스트틑 ㅋㅋ테스트틑 ㅋㅋ테스트틑 ㅋㅋ테스트틑</Text>
+          <Text style={styles.date}>4일 전</Text>
+        </View>
+    );
+
+    const right = (
+        <TouchableOpacity activeOpacity={1} onPress={this.onPress.bind(this, item)}>
+          <Image style={styles.icon} source={require('../../../img/more.png')}/>
+        </TouchableOpacity>
+    );
+
+    return (
+        <ListItem left={left} mid={mid} right={right}/>
+    );
+  }
+
+  onPress(item) {
+    console.log('kkkkk', this.state);
+    // console.log('kkk', this, item);
   }
 }
 

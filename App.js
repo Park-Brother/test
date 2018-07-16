@@ -3,29 +3,14 @@ import {
   Provider, connect
 } from 'react-redux';
 
-import {AppNavigator} from './src/reducers';
+import AppNavigator from './src/navigators/AppNavigator';
 import {store} from './store';
-import {toggleWithDim} from './src/actions/FloatingButton';
-
-const mapStateToProps = (state) => {
-  return ({
-    state: state.nav,
-    dim: state.dim,
-    float: state.float
-  });
-}
-
-const mapDispatchToProps = (dispatch) => ({
-  toggleWithDim: () => dispatch(toggleWithDim()),
-});
-
-const AppWithNavigationState = connect(mapStateToProps, mapDispatchToProps)(AppNavigator);
 
 class Root extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <AppWithNavigationState/>
+        <AppNavigator/>
       </Provider>
     );
   }

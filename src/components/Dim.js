@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
   }
-})
+});

@@ -32,4 +32,4 @@ const appReducer = combineReducers({
   user: UserReducer
 });
 
-export {appReducer, AppNavigator};
+export {appReducer};
