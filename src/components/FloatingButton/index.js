@@ -1,5 +1,11 @@
 import React, {Component} from  'react';
-import {StyleSheet, Animated, Text, View, TouchableHighlight, Image, Dimensions} from 'react-native';
+import {StyleSheet, Animated, View, TouchableHighlight, Image} from 'react-native';
+import {
+  FLOATING_BTN_BACKGROUND_COLOR,
+  FLOATING_BTN_SHADOW_COLOR,
+  FLOATING_BTN_SHADOW_OFFSET,
+  FLOATING_BTN_SHADOW_OPACITY
+} from "../../config/styles";
 
 export default class FloatingButton extends Component {
 
@@ -65,7 +71,7 @@ export default class FloatingButton extends Component {
         }
 
         <TouchableHighlight onPress={this.onPress.bind(this)} style={styles.boltContainer}>
-            <Image source={require('../../img/bolt.png')}
+            <Image source={require('../../../img/bolt.png')}
                   style={styles.bolt}/>
         </TouchableHighlight>
       </View>
@@ -96,12 +102,12 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     borderRadius: 22,
-    backgroundColor: '#40e0d0',
+    backgroundColor: FLOATING_BTN_BACKGROUND_COLOR,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.6,
+    shadowColor: FLOATING_BTN_SHADOW_COLOR,
+    shadowOffset: FLOATING_BTN_SHADOW_OFFSET,
+    shadowOpacity: FLOATING_BTN_SHADOW_OPACITY,
     shadowRadius: 2,
   },
   bolt: {

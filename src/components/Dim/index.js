@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, TouchableOpacity, Dimensions} from 'react-native';
-
+import {DIM_BACKGROUND_COLOR} from '../../config/styles';
 export default class Dim extends Component {
 
   constructor(props) {
@@ -28,6 +28,6 @@ export default class Dim extends Component {
 const styles = StyleSheet.create({
   dim: {
     position: 'absolute',
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    backgroundColor: DIM_BACKGROUND_COLOR,
   }
 });

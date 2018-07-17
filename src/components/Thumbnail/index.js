@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Image} from 'react-native';
+import {THUMBNAIL_COUNTRY_BOARDER_COLOR} from "../../config/styles";
 
-const CountryBasePath = '../../img/country';
-const UserThumbnailErrorImgPath = '../../img/thumbnail.png';
+const CountryBasePath = '../../../img/country';
+const UserThumbnailErrorImgPath = '../../../img/thumbnail.png';
 
 export default class Thumbnail extends Component {
   static SIZE = 40;
@@ -25,7 +26,6 @@ export default class Thumbnail extends Component {
   }
 
   render() {
-    const {user, country} = this.props;
     const {userSource, countrySource} = this.state;
     let {size, style, shrink} = this.props;
 
@@ -110,12 +110,10 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
   },
-  user: {
-  },
   country: {
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: THUMBNAIL_COUNTRY_BOARDER_COLOR,
     position: 'absolute',
-    bottom: 0
+    bottom: -1
   }
 });

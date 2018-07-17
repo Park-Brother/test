@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
+import {
+  TRIANGLE_DEFAULT_BORDER_COLOR,
+  TRIANGLE_DOWN_BORDER_COLOR,
+  TRIANGLE_UP_BORDER_COLOR
+} from "../../config/styles";
 
 export default class Triangle extends Component {
 
@@ -31,7 +36,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 4,
     borderRightColor: 'transparent',
     borderBottomWidth: 6,
-    borderBottomColor: '#d0021b'
+    borderBottomColor: TRIANGLE_UP_BORDER_COLOR
   },
   down: {
     borderLeftWidth: 4,
@@ -39,11 +44,11 @@ const styles = StyleSheet.create({
     borderRightWidth: 4,
     borderRightColor: 'transparent',
     borderTopWidth: 6,
-    borderTopColor: '#7ed321',
+    borderTopColor: TRIANGLE_DOWN_BORDER_COLOR,
   },
   default: {
     width: 8,
     height: 1,
-    backgroundColor: '#f5a623',
+    backgroundColor: TRIANGLE_DEFAULT_BORDER_COLOR,
   }
 });

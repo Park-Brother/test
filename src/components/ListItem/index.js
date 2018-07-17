@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
+import {LIST_ITEM_BOARDER_COLOR} from "../../config/styles";
 
 export default class ListItem extends Component {
 
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
   item: {
     height: 70,
     borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
+    borderBottomColor: LIST_ITEM_BOARDER_COLOR,
     flexDirection: 'row',
   },
   left: {

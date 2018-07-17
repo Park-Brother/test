@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
 
-import Thumbnail from './Thumbnail';
-
+import Thumbnail from '../Thumbnail/index';
+import {FEED_CARD_BACKGROUND_COLOR, FEED_CARD_BOARDER_COLOR} from '../../config/styles';
 export default class FeedCard extends Component {
   constructor(props) {
     super(props);
@@ -36,8 +36,8 @@ export default class FeedCard extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
-    borderBottomColor: '#ebebeb',
+    backgroundColor: FEED_CARD_BACKGROUND_COLOR,
+    borderBottomColor: FEED_CARD_BOARDER_COLOR,
     borderBottomWidth: 1,
     marginBottom: 5,
     flex: 1,
@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
   headerContainer: {
     height: 60,
     flexDirection: 'row',
-    borderBottomColor: '#ebebeb',
+    borderBottomColor: FEED_CARD_BOARDER_COLOR,
     borderBottomWidth: 1,
-    borderTopColor: '#ebebeb',
+    borderTopColor: FEED_CARD_BOARDER_COLOR,
     borderTopWidth: 1,
     paddingLeft: 15,
     alignItems: 'center'
@@ -56,9 +56,6 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
   imageContainer: {
-    // borderBottomColor: '#ebebeb',
-    // borderBottomWidth: 1,
-    // flex: 1,
     height: 150,
     overflow: 'hidden',
   },

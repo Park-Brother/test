@@ -4,7 +4,7 @@ import { FlatList, Text, View, TouchableOpacity} from 'react-native';
 
 import TabMenu from '../../components/TabMenu';
 import Thumbnail from '../../components/Thumbnail';
-import Triangle from '../../components/Triangle';
+import Triangle from '../../components/Trianle';
 import ListItem from '../../components/ListItem';
 
 import {show, hide} from '../../actions/Dim';

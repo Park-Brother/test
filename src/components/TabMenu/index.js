@@ -1,5 +1,16 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity, Dimensions} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity
+} from 'react-native';
+import {
+  TAB_MENU_ACTIVE_BORDER_COLOR,
+  TAB_MENU_BACKGROUND_COLOR,
+  TAB_MENU_INACTIVE_BORDER_COLOR
+} from "../../config/styles";
+
 
 export default class TabMenu extends Component {
 
@@ -19,13 +30,11 @@ export default class TabMenu extends Component {
   }
 
   render() {
-    const renderItem = this.props.renderItem;
     const items = this.state.items;
     let active = this.state.active;
 
     if (!active) active = 0;
     items[active].active = true;
-    const onSelected = items[active].onSelected;
 
     return (
       <View style={styles.container}>
@@ -83,14 +92,14 @@ const styles = StyleSheet.create({
   },
   labelContainer: {
     height: 46,
-    backgroundColor: '#fff',
+    backgroundColor: TAB_MENU_BACKGROUND_COLOR,
     justifyContent: 'center',
     alignItems: 'center',
     borderStyle: 'solid',
-    borderColor: '#ededed',
+    borderColor: TAB_MENU_INACTIVE_BORDER_COLOR,
     borderBottomWidth: 1
   },
   active: {
-    borderColor: '#000'
+    borderColor: TAB_MENU_ACTIVE_BORDER_COLOR
   }
 })
