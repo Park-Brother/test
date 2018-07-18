@@ -4,7 +4,7 @@ import {View, FlatList} from 'react-native';
 
 import FeedCard from '../../components/FeedCard';
 import {getFeeds} from '../../actions/Feed';
-import styles from '../../styles';
+import styles from './styles';
 
 class Feed extends Component {
     constructor(props) {

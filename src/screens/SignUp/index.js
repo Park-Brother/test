@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import { StyleSheet, KeyboardAvoidingView, Animated, Keyboard, TextInput, View, TouchableOpacity, Image, Text} from 'react-native';
+import { KeyboardAvoidingView, Animated, Keyboard, TextInput, View, TouchableOpacity, Image, Text} from 'react-native';
 
 const IMAGE_HEIGHT = 250;
 const IMAGE_HEIGHT_SMALL = 100;
 
+import styles from './styles';
 
 export default class SignUp extends Component {
 
@@ -110,85 +111,3 @@ export default class SignUp extends Component {
     console.log('login.. google');
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // backgroundColor: '#fff',
-    backgroundColor: 'rgba(83, 85, 119, 1)',
-    // alignItems: 'center',
-    paddingTop: 60,
-  },
-  imageContainer: {
-    alignItems: 'center',
-  },
-  image: {
-    width: 300,
-    height: 300
-  },
-  inputContainer: {
-    height: 50,
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10,
-    justifyContent: 'center',
-    // alignItems: 'center',
-    flexDirection: 'row',
-  },
-  icon: {
-    width: 30,
-    height: 30,
-  },
-  input: {
-    flex: 1,
-    height: 30,
-    paddingLeft: 5,
-    marginLeft: 10,
-    marginRight: 10,
-    color: '#fff',
-    borderBottomColor: '#ededed',
-    borderBottomStyle: 'solid',
-    borderBottomWidth: 1,
-  },
-  signUpBtnContainer: {
-    flex:1,
-    backgroundColor: '#fff',
-    borderRadius: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 5,
-  },
-  signInBtnContainer: {
-    flex:1,
-    borderBottomColor: '#fff',
-    borderBottomWidth: 1,
-    borderRadius: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 5
-  },
-  signUpBtnText: {
-    color: 'rgba(83, 85, 119, 1)'
-  },
-  signInBtnText: {
-    color: '#fff'
-  },
-  sectionLineContainer: {
-    flex: 1,
-    alignItems: 'center',
-    marginTop: 50,
-    marginBottom: 30,
-    marginLeft: 80,
-    marginRight: 80,
-  },
-  sectionLine: {
-    width: 150,
-    borderBottomColor: 'rgba(255,255,255, 0.3)',
-    borderBottomWidth: 1,
-    borderRadius: 30,
-  },
-  loginIconContainer: {
-    marginLeft: 10,
-    marginRight: 10
-  }
-});

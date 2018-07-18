@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { Text, View, Button} from 'react-native';
+import styles from './styles';
 
 export default class SignIn extends React.Component {
 
@@ -21,12 +22,3 @@ export default class SignIn extends React.Component {
     this.props.navigation.navigate('SignUp');
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

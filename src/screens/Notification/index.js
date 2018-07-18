@@ -11,18 +11,21 @@ class Notification extends Component {
   constructor(props) {
     super();
     this.state = {
+      refreshing: false,
       items: [{},{},{},{},{},{},{},{}]
     };
   }
 
   render() {
-    const {items} = this.state;
+    const {items, refreshing} = this.state;
 
     return (
       <View style={styles.container}>
         <FlatList
           style={styles.listContainer}
           data={items}
+          refreshing={refreshing}
+          onRefresh={()=>{console.log('refresh')}}
           renderItem={({item}) => this.getListItemTemplate(item)}
           keyExtractor={(item, index) => index}
         />

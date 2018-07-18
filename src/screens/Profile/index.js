@@ -1,9 +1,18 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Button, FlatList, Image, Modal, TouchableHighlight} from 'react-native';
+import {
+  Text,
+  View,
+  FlatList,
+  Image,
+  Modal,
+  TouchableOpacity
+} from 'react-native';
 
 import Thumbnail from '../../components/Thumbnail';
 import TabMenu from '../../components/TabMenu';
 import ModalItem from '../../components/ModalItem';
+
+import styles from './styles';
 
 export default class Profile extends Component {
 
@@ -23,29 +32,29 @@ export default class Profile extends Component {
     const items = this.state.tabItems;
     const modalItems = this.state.modalItems;
     const id = 'IDIDIDIDIDID';
-    //<Image style={{width: 30, height: 30, position: 'absolute', bottom: 0, right: 0}} source={require('../../img/thumbnail.png')}/>
+
     return (
       <View style={styles.container}>
         <View style={styles.userInfoContainer}>
           <View style={styles.thumbnailContainer}>
             <View>
               <Thumbnail size={90} shrink={3}/>
-              <TouchableHighlight onPress={this.openModal.bind(this)}>
+              <TouchableOpacity onPress={this.openModal.bind(this)} activeOpacity={1}>
                 <View style={styles.editBtn}>
                   <Image style={styles.camera} source={require('../../../img/camera.png')}/>
                 </View>
-              </TouchableHighlight>
+              </TouchableOpacity>
               <Text style={styles.id}> {id} </Text>
             </View>
           </View>
           <View style={styles.sectionLine}></View>
           <View style={styles.infoContainer}>
 
-            <TouchableHighlight onPress={this.logout.bind(this)}>
+            <TouchableOpacity onPress={this.logout.bind(this)} activeOpacity={1}>
               <View style={{borderRadius: 3, borderColor: '#ededed', borderWidth: 1, paddingTop: 5, paddingBottom: 5, paddingLeft: 12, paddingRight: 8}}>
                 <Image style={{width: 20, height: 20}} source={require('../../../img/logout.png')}/>
               </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
 
           </View>
         </View>
@@ -151,63 +160,3 @@ export default class Profile extends Component {
     ]
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  userInfoContainer: {
-    height: 130,
-    flexDirection: 'row',
-    backgroundColor: '#fff',
-    borderBottomColor: '#ededed',
-    borderBottomWidth: 1,
-  },
-  sectionLine: {
-    marginTop: 10,
-    marginBottom: 10,
-    borderLeftWidth: 1,
-    borderLeftColor: '#ededed'
-  },
-  thumbnailContainer: {
-    flex: 1,
-    alignItems:'center',
-    justifyContent: 'center'
-  },
-  editBtn: {
-    width: 30,
-    height: 30,
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    borderRadius: 15,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: '#E0E0E0',
-    borderWidth: 1,
-  },
-  camera: {
-    width: 15,
-    height: 15
-  },
-  id: {
-    paddingTop: 10,
-    overflow: 'hidden'
-  },
-  infoContainer: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  list: {
-    flex: 1,
-    backgroundColor: '#fff'
-  },
-  modal: {
-    justifyContent: 'flex-end',
-    margin: 0,
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  }
-});

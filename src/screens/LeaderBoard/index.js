@@ -16,6 +16,7 @@ class LeaderBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      refreshing: false,
       items: this._createListItems(0),
       floatBtnItem: this._createFloatBtnItems(0),
       tabItems: this._createTabItems(),
@@ -140,20 +141,20 @@ class LeaderBoard extends Component {
   }
 
   render() {
-
+    const {refreshing, items, tabItems} = this.state;
     return (
       <View style={styles.container}>
 
-        <TabMenu items={this.state.tabItems}/>
+        <TabMenu items={tabItems}/>
 
         <FlatList
-          data={this.state.items}
+          data={items}
           style={styles.listContainer}
+          refreshing={refreshing}
           renderItem={({item}) => this.getListItemTemplate(item)}
           ListFooterComponent={<Text>Loading!!..</Text>}
           onEndReached={()=>{console.log('end!!')}}
-          onEndReachedThreshold={0}
-          refreshing={false}
+          onEndReachedThreshold={10}
           onRefresh={()=>{console.log('refresh')}}
           keyExtractor={(item, index) => index}
         />
