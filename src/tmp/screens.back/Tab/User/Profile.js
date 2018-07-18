@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, FlatList, Image, Modal, TouchableHighli
 
 import Thumbnail from '../../../../components/Thumbnail';
 import TabMenu from '../../../../components/TabMenu/TabMenu';
-import ModalItem from '../../../../components/ModalItem';
+import ModalItem from '../../../../components/Modal/ModalItem';
 
 export default class Profile extends Component {
 

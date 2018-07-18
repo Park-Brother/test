@@ -4,13 +4,12 @@ import {
   View,
   FlatList,
   Image,
-  Modal,
   TouchableOpacity
 } from 'react-native';
 
 import Thumbnail from '../../components/Thumbnail';
 import TabMenu from '../../components/TabMenu';
-import ModalItem from '../../components/ModalItem';
+import TintModal from '../../components/TintModal';
 
 import styles from './styles';
 
@@ -31,6 +30,7 @@ export default class Profile extends Component {
     // const items = this._createTabItems();
     const items = this.state.tabItems;
     const modalItems = this.state.modalItems;
+    const visible = this.state.modalVisible;
     const id = 'IDIDIDIDIDID';
 
     return (
@@ -66,18 +66,7 @@ export default class Profile extends Component {
           keyExtractor={(item, index) => index}
         />
 
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={this.state.modalVisible}
-          >
-            <View style={styles.modal}>
-              {
-                modalItems.map((item) => <ModalItem item={item}/>)
-              }
-            </View>
-        </Modal>
-
+        <TintModal visible={visible} items={modalItems}/>
       </View>
     );
   }

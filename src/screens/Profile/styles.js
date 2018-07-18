@@ -51,12 +51,6 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
     backgroundColor: '#fff'
-  },
-  modal: {
-    justifyContent: 'flex-end',
-    margin: 0,
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   }
 });
 
