@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {View, FlatList} from 'react-native';
 
 import FeedCard from '../../components/FeedCard';
-import {getFeeds, getRepo} from '../../actions/Feed';
+import {getFeeds, getRepo} from '../../actions/Fetch';
 import styles from './styles';
 
 class Feed extends Component {

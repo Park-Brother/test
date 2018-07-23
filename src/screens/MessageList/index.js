@@ -6,16 +6,31 @@ import Thumbnail from '../../components/Thumbnail';
 import ListItem from '../../components/ListItem';
 import styles from './styles';
 
+import {getMessages} from "../../actions/Fetch";
+
 class MessageList extends Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
-      items: this._createListItem()
+      items: []
     };
+
+    this.props.getMessages();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const {items} = nextProps;
+    this.setState({
+      items
+    });
   }
 
   render() {
+
+    // const {items} = this.props;
+
     return (
       <View style={styles.container}>
         <FlatList
@@ -77,81 +92,19 @@ class MessageList extends Component {
       </TouchableOpacity>
     );
   }
-
-  _createListItem() {
-    return [
-      {
-        from: 'test1',
-        contents: {
-          date: '05.01',
-          latestMsg: 'aaaaaa',
-          noneReadBadge: 0,
-        },
-        user: {
-          country: 'china',
-          profile: 'https://facebook.github.io/react-native/docs/assets/favicon.png'
-        }
-      },
-      {
-        from: 'test2',
-        contents: {
-          date: '05.08',
-          latestMsg: 'bbbbbb',
-          noneReadBadge: 1,
-        },
-        user: {
-          country: 'germany',
-          profile: ''
-        }
-      },
-      {
-        from: 'test3',
-        contents: {
-          date: '05.11',
-          latestMsg: 'cccccc',
-          noneReadBadge: 12,
-        },
-        user: {
-          country: 'united-states',
-          profile: ''
-        }
-      },
-      {
-        from: 'test4',
-        contents: {
-          date: '05.12',
-          latestMsg: 'dddddddddqer',
-          noneReadBadge: 0,
-        },
-        user: {
-          country: 'japan',
-          profile: ''
-        }
-      },
-      {
-        from: 'test5',
-        contents: {
-          date: '08.11',
-          latestMsg: 'eeeeee',
-          noneReadBadge: 0,
-        },
-        user: {
-          country: 'korea',
-          profile: ''
-        }
-      }
-    ];
-  }
 }
 
-const mapStateToProps = (state) => ({
-
-});
-
-const mapDispatchToProps = (dispatch) => ({
-
-});
-
-MessageList = connect()(MessageList);
+MessageList = connect(
+  (state)=> {
+    return {
+      items: state.message.items
+    };
+  },
+  (dispatch) => {
+    return {
+      getMessages: (data) => {dispatch(getMessages(data))}
+    };
+  }
+)(MessageList);
 
 export default MessageList;

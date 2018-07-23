@@ -1,3 +1,4 @@
+import {AsyncStorage, ActivityIndicator} from 'react-native';
 import {
   createSwitchNavigator
 } from 'react-navigation';
@@ -22,6 +23,11 @@ const SwitchRouteConfig = {
 const SwitchNavigatorConfig = {
   mode: 'modal'
 };
+// AsyncStorage.setItem('id_token', '');
+AsyncStorage.getItem('id_token').then((token) => {
+  console.log('token:::', token);
+});
+
 
 const AppNavigator = createSwitchNavigator(SwitchRouteConfig, SwitchNavigatorConfig);
 

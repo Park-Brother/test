@@ -8,7 +8,7 @@ import {
 } from '../actions/actionTypes';
 
 const InitialState = {
-  data: [],
+  items: [],
 };
 
 const MessageReducer = (state = InitialState, action) => {
@@ -16,10 +16,13 @@ const MessageReducer = (state = InitialState, action) => {
 
   switch(action.type) {
     case GET_MESSAGES:
+      return {...state};
       break;
     case GET_MESSAGES_SUCCESS:
+      return {...state, items: payload.data.result};
       break;
     case GET_MESSAGES_FAIL:
+      return {...state};
       break;
     case GET_MESSAGE:
       break;

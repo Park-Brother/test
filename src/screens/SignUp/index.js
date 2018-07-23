@@ -67,12 +67,12 @@ export default class SignUp extends Component {
           <View style={styles.inputContainer}>
             <TouchableOpacity activeOpacity={1} style={styles.signUpBtnContainer} onPress={this.signUp.bind(this)}>
             <View>
-              <Text style={styles.signUpBtnText}>Sign Up</Text>
+              <Text style={styles.signUpBtnText}>Sign In</Text>
             </View>
             </TouchableOpacity>
             <TouchableOpacity style={styles.signInBtnContainer} onPress={this.signIn.bind(this)}>
               <View>
-                <Text style={styles.signInBtnText}>Sign In</Text>
+                <Text style={styles.signInBtnText}>Sign Up</Text>
               </View>
             </TouchableOpacity>
           </View>

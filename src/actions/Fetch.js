@@ -1,4 +1,4 @@
-import {GET_FEEDS, GET_LEADER_BOARDS, GET_NOTIFICATIONS} from "./actionTypes";
+import {GET_FEEDS, GET_LEADER_BOARDS, GET_MESSAGES, GET_NOTIFICATIONS} from "./actionTypes";
 
 export const getRepo = (user) => {
   return {
@@ -13,15 +13,16 @@ export const getRepo = (user) => {
 };
 
 export const getMessages = (user) => {
+
   return {
-    type: GET_FEEDS,
+    type: GET_MESSAGES,
     payload: {
       client: 'local',
       request: {
         url: '/messages',
         method: 'post',
         data: {
-          ...data
+          ...user
         }
       }
     }

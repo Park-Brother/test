@@ -15,7 +15,7 @@ import ListItem from '../../components/ListItem';
 import ListSpinner from '../../components/ListSpinner';
 import styles from './styles';
 
-import {getNotifications} from "../../actions/Feed";
+import {getNotifications} from "../../actions/Fetch";
 
 class Notification extends Component {
 

@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
-import {
-  Provider, connect
-} from 'react-redux';
+import { Provider } from 'react-redux';
 
 import AppNavigator from './src/navigators/AppNavigator';
 import {store} from './store';
 
-class Root extends React.Component {
+class Root extends Component {
   render() {
     return (
       <Provider store={store}>
