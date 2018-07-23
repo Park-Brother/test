@@ -25,7 +25,7 @@ export const BADGE_TEXT_COLOR = '#fff';
 /**
  * components
  */
-export const DIM_BACKGROUND_COLOR = 'rgba(0, 0, 0, 0.3)';
+export const DIM_BACKGROUND_COLOR = 'rgba(0, 0, 0, 0.2)';
 
 export const FEED_CARD_BACKGROUND_COLOR = '#fff';
 export const FEED_CARD_BOARDER_COLOR = '#E0E0E0';

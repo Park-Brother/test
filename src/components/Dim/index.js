@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, TouchableOpacity, Dimensions} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Dimensions
+} from 'react-native';
+
 import {DIM_BACKGROUND_COLOR} from '../../config/styles';
 export default class Dim extends Component {
 

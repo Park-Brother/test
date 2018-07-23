@@ -13,12 +13,15 @@ const NotificationReducer = (state = InitialState, action) => {
 
   switch(action.type) {
     case GET_NOTIFICATIONS:
+      return {...state};
       break;
     case GET_NOTIFICATIONS_SUCCESS:
+      return {...state, data: payload.data.result};
       break;
     case GET_NOTIFICATIONS_FAIL:
       break;
     default:
+      return {...state};
       return state;
   }
 };

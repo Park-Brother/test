@@ -12,7 +12,7 @@ export default class TintModal extends Component {
 
     let {animationType, visible, items} = this.props;
 
-    if (!animationType || !animationType.trim()) animationType = 'slide';
+    if (!animationType || !animationType.trim()) animationType = 'fade';
 
     return (
       <Modal

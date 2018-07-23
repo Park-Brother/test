@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { FlatList, Text, View, TouchableOpacity} from 'react-native';
+import { FlatList, Text, View, TouchableOpacity, ActivityIndicator} from 'react-native';
 
 import TabMenu from '../../components/TabMenu';
 import Thumbnail from '../../components/Thumbnail';
@@ -152,7 +152,7 @@ class LeaderBoard extends Component {
           style={styles.listContainer}
           refreshing={refreshing}
           renderItem={({item}) => this.getListItemTemplate(item)}
-          ListFooterComponent={<Text>Loading!!..</Text>}
+          ListFooterComponent={<ActivityIndicator/>}
           onEndReached={()=>{console.log('end!!')}}
           onEndReachedThreshold={10}
           onRefresh={()=>{console.log('refresh')}}

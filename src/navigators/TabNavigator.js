@@ -17,7 +17,8 @@ import {toggleWithDim} from "../actions/FloatingButton";
 /**
  * tab navigator
  */
-const InitialRouteName = 'LeaderBoard';
+// const InitialRouteName = 'LeaderBoard';
+const InitialRouteName = 'Notification';
 
 const TabRouteConfig = {
   Message: MessageNavigator,

@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {LIST_BACKGROUND} from '../../config/styles';
+import {LIST_BACKGROUND, DIM_BACKGROUND_COLOR} from '../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,6 +20,15 @@ const styles = StyleSheet.create({
   },
   icon: {
     width: 15, height: 15
+  },
+  modalContainer: {
+    flex: 1
+  },
+  modal: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    backgroundColor: DIM_BACKGROUND_COLOR
   }
 });
 
