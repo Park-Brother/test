@@ -1,11 +1,8 @@
-import {
-  GET_NOTIFICATIONS,
-  GET_NOTIFICATIONS_SUCCESS,
-  GET_NOTIFICATIONS_FAIL
-} from "../actions/actionTypes";
+import {GET_NOTIFICATIONS, GET_NOTIFICATIONS_SUCCESS, GET_NOTIFICATIONS_FAIL} from "../actions/actionTypes";
 
 const InitialState = {
-  data: [],
+  items: [],
+  loading: false,
 };
 
 const NotificationReducer = (state = InitialState, action) => {
@@ -13,16 +10,21 @@ const NotificationReducer = (state = InitialState, action) => {
 
   switch(action.type) {
     case GET_NOTIFICATIONS:
-      return {...state};
-      break;
+      return {
+        ...state,
+      };
     case GET_NOTIFICATIONS_SUCCESS:
-      return {...state, data: payload.data.result};
-      break;
+      return {
+        ...state,
+        items: payload.data.result,
+        loading: true,
+      };
     case GET_NOTIFICATIONS_FAIL:
-      break;
-    default:
-      return {...state};
-      return state;
+      return {
+        ...state,
+        loading: false,
+      };
+    default: return state;
   }
 };
 

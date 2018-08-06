@@ -1,14 +1,8 @@
-import {
-  GET_USER,
-  GET_USER_SUCCESS,
-  GET_USER_FAIL,
-  UPDATE_USER,
-  UPDATE_USER_SUCCESS,
-  UPDATE_USER_FAIL
-} from '../actions/actionTypes';
+import {GET_USER, GET_USER_FAIL, GET_USER_SUCCESS} from "../actions/actionTypes";
 
 const InitialState = {
-  user: {}
+  user: null,
+  loading: false,
 };
 
 const UserReducer = (state = InitialState, action) => {
@@ -16,10 +10,23 @@ const UserReducer = (state = InitialState, action) => {
 
   switch(action.type) {
 
-    default:
-      return state;
+    case GET_USER:
+      return {
+        ...state,
+      };
+    case GET_USER_SUCCESS:
+      return {
+        ...state,
+        user: payload.data.result,
+        loading: true,
+      };
+    case GET_USER_FAIL:
+      return {
+        ...state,
+        loading: false,
+      };
+    default: return state;
   }
 };
 
 export default UserReducer;
-

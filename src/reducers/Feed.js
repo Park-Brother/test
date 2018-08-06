@@ -1,36 +1,33 @@
-import {
-  GET_FEEDS,
-  GET_FEEDS_SUCCESS,
-  GET_FEEDS_FAIL,
-} from '../actions/actionTypes';
+import {GET_FEEDS, GET_FEEDS_SUCCESS, GET_FEEDS_FAIL} from "../actions/actionTypes";
 
 const InitialState = {
+  items: [],
   loading: false,
-  data: []
 };
 
-export default function FeedReducer(state = InitialState, action) {
+const FeedReducer = (state = InitialState, action) => {
   const payload = action.payload;
-  // console.log('kkkk', action.type);
-  switch (action.type) {
+
+  switch(action.type) {
+
     case GET_FEEDS:
-      return { ...state, loading: true };
-    case GET_FEEDS_SUCCESS:
-      console.log('./..success::');
       return {
         ...state,
-        // data: payload.data
         loading: true,
-        data: payload.data.result
-      }
-    case GET_FEEDS_FAIL:
-      console.log('fail...');
+      };
+    case GET_FEEDS_SUCCESS:
       return {
         ...state,
-        msg: 'fail....',
-        loading: false
+        items: payload.data.result,
+        loading: false,
       };
-    default:
-      return state;
+    case GET_FEEDS_FAIL:
+      return {
+        ...state,
+        loading: false,
+      };
+    default: return state;
   }
-}
+};
+
+export default FeedReducer;

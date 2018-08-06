@@ -1,133 +1,123 @@
-import {
-  createStackNavigator,
-} from 'react-navigation';
-
-import {
-  Message,
-  MessageList,
-  Feed,
-  LeaderBoard,
-  Notification,
-  Profile,
-  SignIn,
-  SignUp,
-} from '../screens';
+import {createStackNavigator} from 'react-navigation';
+import {Ranking, Feed, Notification, User, Purchase, SignIn, SignUp, Write} from '../screens';
 
 /**
- * Message config
+ * Ranking
  */
-const MessageRouteConfig = {
-  MessageList: {
-    screen: MessageList
-  },
-  Message: {
-    screen: Message
+const RankingRouteConfig = {
+  Ranking: {
+    screen: Ranking
   }
 };
 
-const MessageNavigatorOptions = {
+const RankingNavigatorOptions = {
 
 };
 
-const MessageNavigator = createStackNavigator(MessageRouteConfig, MessageNavigatorOptions);
+const RankingNavigator = createStackNavigator(RankingRouteConfig, RankingNavigatorOptions);
 
-MessageNavigator.navigationOptions = ({ navigation }) => {
+/**
+ * Feed
+ */
+const FeedRouteConfig = {
+  Feed: {
+    screen: Feed
+  },
+  Write: {
+    screen: Write
+  }
+};
+
+const FeedNavigatorOptions = {
+  mode: 'modal',
+};
+
+const FeedNavigator = createStackNavigator(FeedRouteConfig, FeedNavigatorOptions);
+
+FeedNavigator.navigationOptions = ({ navigation }) => {
   let tabBarVisible = true;
   if (navigation.state.index > 0) {
     tabBarVisible = false;
   }
 
   return {
-    tabBarVisible,
+    tabBarVisible
   };
 }
+
 /**
- * Feed config
+ * Notification
  */
-const FeedRouteConfigs = {
-  Feed: {
-    screen: Feed
-  }
-};
-
-const FeedNavigatorOptions = {
-
-};
-
-const FeedNavigator = createStackNavigator(FeedRouteConfigs, FeedNavigatorOptions);
-/**
- * Leader Board Config
- */
-
-const LeaderBoardRouteConfig = {
-  LeaderBoard: {
-    screen: LeaderBoard
-  }
-};
-const LeaderBoardNavigatorOptions = {
-
-};
-
-const LeaderBoardNavigator = createStackNavigator(LeaderBoardRouteConfig, LeaderBoardNavigatorOptions);
-/**
- * Notification config
- */
-
 const NotificationRouteConfig = {
   Notification: {
     screen: Notification
   }
 };
 
-const NotificationNavigatorConfig = {
+const NotificationNavigatorOptions = {
 
 };
 
-const NotificationNavigator = createStackNavigator(NotificationRouteConfig, NotificationNavigatorConfig);
+const NotificationNavigator = createStackNavigator(NotificationRouteConfig, NotificationNavigatorOptions);
+
 /**
- * SignNavigator
+ * Purchase
  */
-const SignRouteConfig = {
-  SignUp: {
-    screen: SignUp
-  },
-  SignIn: {
-    screen: SignIn
+const PurchaseRouteConfig = {
+  Purchase: {
+    screen: Purchase
   }
 };
 
-const SignNavigatorOptions = {
+const PurchaseNavigatorOptions = {
+
+};
+
+const PurchaseNavigator = createStackNavigator(PurchaseRouteConfig, PurchaseNavigatorOptions);
+
+/**
+ * Auth
+ */
+const AuthRouteConfig = {
+  SignIn: {
+    screen: SignIn
+  },
+  SignUp: {
+    screen: SignUp
+  }
+};
+
+const AuthNavigatorOptions = {
   headerMode: 'none'
 };
 
-const SignNavigator = createStackNavigator(SignRouteConfig, SignNavigatorOptions);
+const AuthNavigator = createStackNavigator(AuthRouteConfig, AuthNavigatorOptions);
+
 /**
- * Profile
+ * User
  */
-const ProfileRouteConfig = {
-  Profile: {
-    screen: Profile
+const UserRouteConfig = {
+  User: {
+    screen: User
   },
-  Sign: {
-    screen: SignNavigator,
+  Auth: {
+    screen: AuthNavigator,
     navigationOptions: {
       header: null
     }
   }
 };
 
-const ProfileNavigatorConfig = {
-  mode: 'modal'
+const UserNavigatorOptions = {
+  mode: 'modal',
 };
 
-const ProfileNavigator = createStackNavigator(ProfileRouteConfig, ProfileNavigatorConfig);
+const UserNavigator = createStackNavigator(UserRouteConfig, UserNavigatorOptions);
 
-ProfileNavigator.navigationOptions = ({ navigation }) => {
+UserNavigator.navigationOptions = ({ navigation }) => {
   let tabBarVisible = true;
-  let headerVisible = true;
   if (navigation.state.index > 0) {
     tabBarVisible = false;
-    headerVisible = false;
   }
 
   return {
@@ -135,14 +125,31 @@ ProfileNavigator.navigationOptions = ({ navigation }) => {
     tabBarVisible
   };
 }
+
+// /**
+//  * Write
+//  */
+// const WriteRouteConfig = {
+//   write: {
+//     screen: Write
+//   }
+// };
+//
+// const WriteNavigatorOptions = {
+// };
+//
+// const WriteNavigator = createStackNavigator(WriteRouteConfig, WriteNavigatorOptions);
+
 /**
- * create stack navigator
+ * Purchase
  */
+
 export {
-  MessageNavigator,
   FeedNavigator,
-  LeaderBoardNavigator,
+  RankingNavigator,
   NotificationNavigator,
-  SignNavigator,
-  ProfileNavigator
-};
+  PurchaseNavigator,
+  AuthNavigator,
+  UserNavigator,
+  // WriteNavigator
+}

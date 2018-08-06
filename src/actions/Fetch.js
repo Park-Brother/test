@@ -1,79 +1,57 @@
-import {GET_FEEDS, GET_LEADER_BOARDS, GET_MESSAGES, GET_NOTIFICATIONS} from "./actionTypes";
+import {GET_RANKINGS, GET_NOTIFICATIONS, GET_USER, GET_FEEDS} from "./actionTypes";
+import {convertQueryString} from '../util';
 
-export const getRepo = (user) => {
+export const getRankings = (data) => {
+  let queryString = convertQueryString(data);
   return {
-    type: GET_FEEDS,
+    type: GET_RANKINGS,
     payload: {
-      client: 'test',
+      client: 'local',
       request: {
-        url: `/users/${user}/repos`
+        url: `/rankings?${queryString}`,
       }
     }
   };
 };
 
-export const getMessages = (user) => {
-
-  return {
-    type: GET_MESSAGES,
-    payload: {
-      client: 'local',
-      request: {
-        url: '/messages',
-        method: 'post',
-        data: {
-          ...user
-        }
-      }
-    }
-  }
-};
-
-export const getFeeds = (data) => {
-  return {
-    type: GET_FEEDS,
-    payload: {
-      client: 'local',
-      request: {
-        url: '/feeds',
-        method: 'post',
-        data: {
-          ...data
-        }
-      }
-    }
-  }
-};
-
-export const getLeaderBoards = (data) => {
-  return {
-    type: GET_LEADER_BOARDS,
-    payload: {
-      client: 'local',
-      request: {
-        url: '/leaderBoards',
-        method: 'post',
-        data: {
-          ...data
-        }
-      }
-    }
-  }
-};
-
 export const getNotifications = (data) => {
+  let queryString = convertQueryString(data);
   return {
     type: GET_NOTIFICATIONS,
     payload: {
       client: 'local',
       request: {
-        url: '/notifications',
+        url: `/notifications?${queryString}`,
+      }
+    }
+  };
+};
+
+export const getUser = (id) => {
+  return {
+    type: GET_USER,
+    payload: {
+      client: 'local',
+      request: {
+        url: `/users/${id}`,
+      }
+    }
+  };
+};
+
+export const getFeeds = (data) => {
+
+  return {
+    type: GET_FEEDS,
+    payload: {
+      client: 'local',
+      request: {
+        url: `/feeds`,
         method: 'post',
         data: {
           ...data
         }
       }
     }
-  }
+  };
 };
-
