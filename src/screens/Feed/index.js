@@ -8,9 +8,6 @@ import Row from '../../components/Row';
 import Write from '../../screens/Write';
 import ListCard from '../../components/ListCard';
 
-import { YellowBox } from 'react-native';
-YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
-
 import {getFeeds} from '../../actions/Fetch';
 
 import {LIST_BACKGROUND} from "../../styles";
@@ -186,7 +183,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: LIST_BACKGROUND
+    backgroundColor: LIST_BACKGROUND,
   },
   list: {
     flex: 1,
