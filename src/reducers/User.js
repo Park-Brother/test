@@ -1,8 +1,12 @@
-import {GET_USER, GET_USER_FAIL, GET_USER_SUCCESS} from "../actions/actionTypes";
+import {
+  GET_USER, GET_USER_FAIL, GET_USER_SUCCESS,
+  SET_USER_TOKEN, SIGN_UP, SIGN_IN, LOGOUT
+} from "../actions/actionTypes";
 
 const InitialState = {
   user: null,
   loading: false,
+  token: null,
 };
 
 const UserReducer = (state = InitialState, action) => {
@@ -25,8 +29,16 @@ const UserReducer = (state = InitialState, action) => {
         ...state,
         loading: false,
       };
+    case SET_USER_TOKEN:
+
+      return {
+        ...state,
+        token: payload.token
+      };
     default: return state;
   }
 };
+
+
 
 export default UserReducer;

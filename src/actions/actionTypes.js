@@ -38,3 +38,8 @@ export const GET_USER_FAIL = 'GET_USER_FAIL';
 export const UPDATE_USER = 'UPDATE_USER';
 export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
 export const UPDATE_USER_FAIL = 'UPDATE_USER_FAIL';
+
+export const SET_USER_TOKEN = 'SET_USER_TOKEN';
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_UP = 'SIGN_UP';
+export const LOGOUT = 'LOGOUT';
